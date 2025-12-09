@@ -1,0 +1,251 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  PanelWidgetClass "{670E47A4A05D5A00}" {
+   Name "Panel0"
+   Slot FrameWidgetSlot "{670E47A4A05D5A1F}" {
+    Anchor 0.5 0.5 0.5 0.5
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 1024
+    OffsetRight -1024
+    SizeY 960
+    OffsetBottom -960
+    Alignment 0.5 0.5
+   }
+   {
+    BlurWidgetClass "{670E47A64142D0F1}" {
+     Name "Blur0"
+     Slot FrameWidgetSlot "{670E47A6414102C3}" {
+      Anchor 0 0 1 1
+      PositionX 43.304
+      PositionY 613.344
+      SizeX -1920
+      OffsetRight 0
+      SizeY -1080
+      OffsetBottom 0
+     }
+     Color 0 0 0 0.981
+    }
+    VerticalLayoutWidgetClass "{670E47A407E7A1E6}" {
+     Name "Content"
+     Slot FrameWidgetSlot "{670E47A407E7A180}" {
+      Anchor 0.05 0.05 0.95 0.95
+      PositionX -96
+      OffsetLeft 0
+      PositionY -54
+      OffsetTop 0
+      SizeX -1628
+      OffsetRight 0
+      SizeY -942
+      OffsetBottom 0
+     }
+     {
+      RichTextWidgetClass "{6708A7466A83D48E}" : "{5E0F8422A1F05728}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_Heading2.layout" {
+       Name "TitleText"
+       Slot LayoutSlot "{6710ACF78973839A}" {
+       }
+       Text "Populate Area - "
+       "Horizontal Alignment" Center
+      }
+      HorizontalLayoutWidgetClass "{6712706719F34E60}" {
+       Name "Size Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        RichTextWidgetClass "{6712706719F34E61}" {
+         Name "RichText0"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+          Padding 0 0 50 0
+         }
+         Text "Radius:"
+        }
+        SliderWidgetClass "{6712706719F34E62}" {
+         Name "AreaSizeSlider"
+         Slot LayoutSlot "{6710ACF65FEF53DB}" {
+         }
+        }
+        EditBoxWidgetClass "{6712706719F34E63}" {
+         Name "AreaSizeEdit"
+         Slot LayoutSlot "{6710ACF66DA063B8}" {
+          Padding 50 0 0 0
+         }
+         text "0"
+        }
+       }
+      }
+      HorizontalLayoutWidgetClass "{6710ACF64C10629D}" {
+       Name "Garrison Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        RichTextWidgetClass "{6710ACF64708DF0E}" {
+         Name "RichText0"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+          Padding 0 0 50 0
+         }
+         Text "Garrisions:"
+        }
+        SliderWidgetClass "{6710ACF65FEF53C2}" {
+         Name "GarrisonSlider"
+         Slot LayoutSlot "{6710ACF65FEF53DB}" {
+         }
+        }
+        EditBoxWidgetClass "{6710ACF66DA06398}" {
+         Name "GarrisonEdit"
+         Slot LayoutSlot "{6710ACF66DA063B8}" {
+          Padding 50 0 20 0
+         }
+         text "0"
+        }
+        RichTextWidgetClass "{6712706797CA21F9}" {
+         Name "RichText1"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+         }
+         Text " / "
+        }
+        RichTextWidgetClass "{6710ACF55A7CFC79}" {
+         Name "GarrisonMaxNumber"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+         }
+         Text "-1"
+        }
+        RichTextWidgetClass "{671270679CA07EF5}" {
+         Name "RichText2"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+         }
+         Text " Buildings"
+        }
+       }
+      }
+      FrameWidgetClass "{6710ACF6A8CFFE73}" {
+       Name "Spacer"
+       Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+        SizeMode Fill
+       }
+      }
+      HorizontalLayoutWidgetClass "{670E47A730C9BFD0}" {
+       Name "Actions"
+       Slot LayoutSlot "{670E47A730C9BF32}" {
+       }
+       {
+        FrameWidgetClass "{6710ACF6D8A97B23}" {
+         Name "Spacer0"
+         Slot LayoutSlot "{6710ACF6D03FAF13}" {
+          SizeMode Fill
+         }
+        }
+        ButtonWidgetClass "{6708A74678C8F3F2}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonStart"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Populate"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6710ACF6D03FAF77}" {
+         Name "Spacer"
+         Slot LayoutSlot "{6710ACF6D03FAF13}" {
+          Padding 20 0 0 0
+         }
+        }
+        ButtonWidgetClass "{6708A746C0848C3D}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonClose"
+         Slot LayoutSlot "{6710ACF7897385D6}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Close"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    VerticalLayoutWidgetClass "{670E47A78CBA1580}" {
+     Name "LeftBorder"
+     Slot FrameWidgetSlot "{670E47A78CBA157C}" {
+      Anchor 0 0.05 0.05 0.95
+      PositionX 96
+      PositionY -54
+      SizeX 4
+      OffsetRight 0
+      SizeY -942
+      OffsetBottom 0
+     }
+     {
+      FrameWidgetClass "{670E47A7982FC141}" {
+       Name "Frame0"
+       Slot LayoutSlot "{6710ACF789738592}" {
+       }
+      }
+     }
+    }
+    VerticalLayoutWidgetClass "{670E47A7A9F97BCB}" {
+     Name "RightBorder"
+     Slot FrameWidgetSlot "{670E47A78CBA157C}" {
+      Anchor 0.95 0.05 1 0.95
+      PositionX -972.8
+      OffsetLeft -972.8
+      PositionY 0
+      OffsetTop 0
+      SizeX 0
+      OffsetRight 972.8
+      SizeY 0
+      OffsetBottom 0
+     }
+     {
+      FrameWidgetClass "{670E47A7A9F927AC}" {
+       Name "Frame0"
+       Slot LayoutSlot "{670E47A7A9F97A37}" {
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
