@@ -50,6 +50,111 @@ FrameWidgetClass {
        Text "Populate Area - "
        "Horizontal Alignment" Center
       }
+      HorizontalLayoutWidgetClass "{671A4A0B8F03293E}" {
+       Name "Faction Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        FrameWidgetClass "{671A4A0BB3BFF634}" {
+         Name "Spacer0"
+         Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+          SizeMode Fill
+         }
+        }
+        ButtonWidgetClass "{671A4A0B56FD669C}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonUS"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "US"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass "{671A4A0B61D3C841}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonUSSR"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+          Padding 50 0 50 0
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "USSR"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass "{671A4A0B600E53E4}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonFIA"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "FIA"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{671A4A0BB7DFEAC9}" {
+         Name "Spacer1"
+         Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+          SizeMode Fill
+         }
+        }
+       }
+      }
       HorizontalLayoutWidgetClass "{6712706719F34E60}" {
        Name "Size Container"
        Slot LayoutSlot "{6710ACF64C1062B7}" {
@@ -72,6 +177,28 @@ FrameWidgetClass {
          Name "AreaSizeEdit"
          Slot LayoutSlot "{6710ACF66DA063B8}" {
           Padding 50 0 0 0
+         }
+         text "0"
+        }
+       }
+      }
+      HorizontalLayoutWidgetClass "{67128C6685EACF2F}" {
+       Name "Patrol Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        RichTextWidgetClass "{67128C6685EACF30}" {
+         Name "RichText0"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+          Padding 0 0 50 0
+         }
+         Text "Patrols:"
+        }
+        EditBoxWidgetClass "{67128C6685EACA31}" {
+         Name "PatrolEdit"
+         Slot LayoutSlot "{6710ACF66DA063B8}" {
+          Padding 50 0 20 0
          }
          text "0"
         }
@@ -119,6 +246,49 @@ FrameWidgetClass {
          Slot LayoutSlot "{6710ACF64708DF2A}" {
          }
          Text " Buildings"
+        }
+       }
+      }
+      HorizontalLayoutWidgetClass "{671A79D647B76898}" {
+       Name "Vehicle Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        RichTextWidgetClass "{671A79D647B76899}" {
+         Name "RichText0"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+          Padding 0 0 50 0
+         }
+         Text "Vehicles:"
+        }
+        EditBoxWidgetClass "{671A79D647B7689A}" {
+         Name "VehicleEdit"
+         Slot LayoutSlot "{6710ACF66DA063B8}" {
+          Padding 50 0 50 0
+         }
+         text "0"
+        }
+        CheckBoxWidgetClass "{671A79D780CD3464}" {
+         Name "JeepsCheck"
+         Slot LayoutSlot "{671A79D780CD3479}" {
+         }
+         text "Jeeps"
+         FontProperties FontProperties "{671A79D7935592EF}" {
+          Font "{C3AE73A29C29E5A0}UI/Fonts/Default/default58.fnt"
+         }
+         checked 1
+        }
+        CheckBoxWidgetClass "{671A79D7A32DCA0E}" {
+         Name "APCsCheck"
+         Slot LayoutSlot "{671A79D780CD3479}" {
+          Padding 50 0 0 0
+         }
+         text "APCs"
+         FontProperties FontProperties "{671A79D7935592EF}" {
+          Font "{C3AE73A29C29E5A0}UI/Fonts/Default/default58.fnt"
+         }
+         checked 1
         }
        }
       }
