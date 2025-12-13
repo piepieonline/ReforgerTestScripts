@@ -44,7 +44,7 @@ class PIE_AreaPopulator : Managed
 		populator.apcTypes.Clear();
 		array<string> usAPCs = { "{0FBF8F010F81A4E5}Prefabs/Vehicles/Wheeled/LAV25/LAV25.et", "{E1CB513B8B9B08F4}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Crew.et", "{E1CB513B8B9B08F4}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Crew.et", "{E1CB513B8B9B08F4}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Crew.et" };
 		array<string> ussrAPCs = { "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et", "{9FFEF10757E742EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Crew.et", "{9FFEF10757E742EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Crew.et", "{9FFEF10757E742EB}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Crew.et" };
-		array<string> fiaAPCs = { "{442939C9617DF228}Prefabs/Vehicles/Wheeled/BRDM2/BRDM2_FIA.et", "{641AD7731E23454B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Crew.et", "{641AD7731E23454B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Crew.et" };
+		array<string> fiaAPCs = { "{442939C9617DF228}Prefabs/Vehicles/Wheeled/BRDM2/BRDM2_FIA.et", "{641AD7731E23454B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Crew.et", "{641AD7731E23454B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Crew.et", "{641AD7731E23454B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Crew.et" };
 		apcTypes.Set("US", usAPCs);
 		apcTypes.Set("USSR", ussrAPCs);
 		apcTypes.Set("FIA", fiaAPCs);
@@ -86,6 +86,8 @@ class PIE_AreaPopulator : Managed
 		}
 	}
 	
+	// Small defend waypoint in a building
+	// TODO: Better garrison logic?
 	void SpawnGarrisonUnit(vector townPos, IEntity ent)
 	{
 		vector position = ent.GetOrigin();
@@ -112,6 +114,8 @@ class PIE_AreaPopulator : Managed
 		}
 	}
 
+	// 3 waypoints to patrol between
+	// TODO: Make them walk?
 	void SpawnPatrolUnit(vector townPos)
 	{
 		vector cycleWaypointPos = GetRandomOffsetPosition(townPos, 150);
@@ -123,7 +127,10 @@ class PIE_AreaPopulator : Managed
 		SCR_AIGroup group = SCR_AIGroup.Cast(spawnedGroupEntity);
 		
 		AIWaypoint moveWaypoint = AIWaypoint.Cast(GetGame().SpawnEntityPrefab(moveWaypointResource, null, GenerateSpawnParameters(GetRandomOffsetPosition(townPos, 150))));
-		moveWaypoint.SetCompletionRadius(5.0);
+		moveWaypoint.SetCompletionRadius(5.0);	
+		
+		AIWaypoint moveWaypoint2 = AIWaypoint.Cast(GetGame().SpawnEntityPrefab(moveWaypointResource, null, GenerateSpawnParameters(GetRandomOffsetPosition(townPos, 150))));
+		moveWaypoint2.SetCompletionRadius(5.0);
 		
 		AIWaypoint moveCycleWaypoint = AIWaypoint.Cast(GetGame().SpawnEntityPrefab(moveWaypointResource, null, GenerateSpawnParameters(cycleWaypointPos)));
 		moveCycleWaypoint.SetCompletionRadius(5.0);
@@ -134,6 +141,8 @@ class PIE_AreaPopulator : Managed
 		group.AddWaypoint(cycleWaypoint);
 	}
 	
+	// Spawn a vehicle on a random road within the boundaries
+	// TODO: Enable patrolling vehicles
 	void SpawnVehicle(vector townPos, bool patrol)
 	{
 		array<string> spawnTypes = new array<string>();
@@ -167,16 +176,16 @@ class PIE_AreaPopulator : Managed
 			}
 		}
 		
-		vector spawnPosition, spawnRotation;
-		// TODO: On road
-		GetRandomRoadSegmentTransform(townPos, 150, spawnPosition, spawnRotation);
-		SCR_WorldTools.FindEmptyTerrainPosition(spawnPosition, spawnPosition, 150);
+		vector spawnPosition;
+		float spawnRotation;
+		GetRandomRoadSegmentTransform(townPos, paramSpawnRadius, spawnPosition, spawnRotation);
+		SCR_WorldTools.FindEmptyTerrainPosition(spawnPosition, spawnPosition, paramSpawnRadius);
 		
 		IEntity groupEntity = GetGame().SpawnEntityPrefab(Resource.Load("{000CD338713F2B5A}Prefabs/AI/Groups/Group_Base.et"), GetGame().GetWorld(), GenerateSpawnParameters(spawnPosition));
 		SCR_AIGroup aiGroup = SCR_AIGroup.Cast(groupEntity);
 		aiGroup.m_faction = paramSpawnUnitFaction;
 		
-		IEntity spawnedVehicleEntity = GetGame().SpawnEntityPrefab(Resource.Load(vicResourcePath), GetGame().GetWorld(), GenerateSpawnParameters(spawnPosition));
+		IEntity spawnedVehicleEntity = GetGame().SpawnEntityPrefab(Resource.Load(vicResourcePath), GetGame().GetWorld(), GenerateSpawnParameters(spawnPosition, spawnRotation));
 		aiGroup.AddVehiclesStatic({ spawnedVehicleEntity.GetName() });
 		
 		foreach(string crew : crewResourcePaths)
@@ -186,16 +195,15 @@ class PIE_AreaPopulator : Managed
 		}
 		
 		AIWaypoint getInWaypoint = AIWaypoint.Cast(GetGame().SpawnEntityPrefab(Resource.Load("{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"), null, GenerateSpawnParameters(spawnPosition)));
-		// SCR_AIEntityWaypointParameters getInParams = SCR_AIEntityWaypointParameters.Cast(getInWaypoint.FindComponent(SCR_AIEntityWaypointParameters));
-		// getInParams.SetEntity(spawnedVehicleEntity);
 		aiGroup.AddWaypoint(getInWaypoint);
 	}
 	
+	// Helpers
 	static void GetRandomRoadSegmentTransform(
 		vector centerPos,
 		float offset,
 		out vector outPos,
-		out vector outDir
+		out float outDir
 	)
 	{
 		SCR_AIWorld aiWorld = SCR_AIWorld.Cast(GetGame().GetAIWorld());
@@ -215,8 +223,16 @@ class PIE_AreaPopulator : Managed
 		array<vector> roadPoints = new array<vector>();
 		roads.GetRandomElement().GetPoints(roadPoints);
 		
-		outPos = roadPoints.GetRandomElement();
-		outDir = vector.Zero;
+		int index = Math.RandomInt(0, roadPoints.Count());
+		int index1 = (index + 1) % roadPoints.Count();
+		
+		vector direction = roadPoints[index1] - roadPoints[index];
+		direction[1] = 0;
+		direction.Normalize();
+		
+		outPos = roadPoints[index];
+		outDir = (Math.Atan2(direction[0], direction[2]) * Math.RAD2DEG);
+		if (Math.RandomFloat01() < 0.5) outDir += 180
 	}
 
 	static vector GetRandomOffsetPosition(vector center, float radius)
@@ -279,11 +295,13 @@ class PIE_AreaPopulator : Managed
 		return true; // continue searching
 	}
 
-	protected EntitySpawnParams GenerateSpawnParameters(vector position)
+	protected EntitySpawnParams GenerateSpawnParameters(vector position, float rotation = 0)
 	{
 		// Create a new set of spawn parameters 
 		EntitySpawnParams params = EntitySpawnParams();
 		params.TransformMode = ETransformMode.WORLD;
+		
+		Math3D.AnglesToMatrix(Vector(rotation, 0, 0), params.Transform);
 		
 		// Assign the position to those parameters 
 		params.Transform[3] = position;
