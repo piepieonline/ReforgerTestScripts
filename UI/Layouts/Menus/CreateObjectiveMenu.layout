@@ -1,0 +1,523 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  PanelWidgetClass "{671C92B7C5FED5B9}" {
+   Name "Panel0"
+   Slot FrameWidgetSlot "{670E47A4A05D5A1F}" {
+    Anchor 0.5 0.5 0.5 0.5
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 1024
+    OffsetRight -1024
+    SizeY 960
+    OffsetBottom -960
+    Alignment 0.5 0.5
+   }
+   {
+    BlurWidgetClass "{671C92B7C5FED5BC}" {
+     Name "Blur0"
+     Slot FrameWidgetSlot "{670E47A6414102C3}" {
+      Anchor 0 0 1 1
+      PositionX 43.304
+      PositionY 613.344
+      SizeX -1920
+      OffsetRight 0
+      SizeY -1080
+      OffsetBottom 0
+     }
+     Color 0 0 0 0.981
+    }
+    VerticalLayoutWidgetClass "{671C92B7C5FED5BD}" {
+     Name "Content"
+     Slot FrameWidgetSlot "{670E47A407E7A180}" {
+      Anchor 0.05 0.05 0.95 0.95
+      PositionX -96
+      OffsetLeft 0
+      PositionY -54
+      OffsetTop 0
+      SizeX -1628
+      OffsetRight 0
+      SizeY -942
+      OffsetBottom 0
+     }
+     {
+      RichTextWidgetClass "{671C92B7C5FED5BE}" : "{5E0F8422A1F05728}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_Heading2.layout" {
+       Name "TitleText"
+       Slot LayoutSlot "{6710ACF78973839A}" {
+       }
+       Text "Create Objective"
+       "Horizontal Alignment" Center
+      }
+      HorizontalLayoutWidgetClass "{671C92B7C5FED5BF}" {
+       Name "TabContainer"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        FrameWidgetClass "{671C92B7C5FECDDE}" {
+         Name "Spacer0"
+         Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+          SizeMode Fill
+         }
+        }
+        ButtonWidgetClass "{671C92B7C5FECD20}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonDocumentTab"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Find Document"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass "{671C92B7C5FECD22}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonDestroyTab"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+          Padding 50 0 50 0
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Destroy"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass "{671C92B7C5FECD24}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonRescueTab"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Rescue"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{671C92B7C5FECD27}" {
+         Name "Spacer1"
+         Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+          SizeMode Fill
+         }
+        }
+       }
+      }
+      HorizontalLayoutWidgetClass "{671C92B7C5FE52C7}" {
+       Name "Size Container"
+       Slot LayoutSlot "{6710ACF64C1062B7}" {
+        Padding 0 20 0 0
+       }
+       {
+        RichTextWidgetClass "{671C92B7C5FE52C6}" {
+         Name "RichText0"
+         Slot LayoutSlot "{6710ACF64708DF2A}" {
+          Padding 0 0 50 0
+         }
+         Text "Radius:"
+        }
+        SliderWidgetClass "{671C92B7C5FE52C9}" {
+         Name "AreaSizeSlider"
+         Slot LayoutSlot "{6710ACF65FEF53DB}" {
+         }
+        }
+        EditBoxWidgetClass "{671C92B7C5FE52C8}" {
+         Name "AreaSizeEdit"
+         Slot LayoutSlot "{6710ACF66DA063B8}" {
+          Padding 50 0 0 0
+         }
+         text "0"
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{671C92BE516537C0}" {
+       Name "DocumentContainer"
+       Slot LayoutSlot {
+       }
+       {
+        RichTextWidgetClass "{671C92BD191D694E}" : "{5E0F8422A1F05728}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_Heading2.layout" {
+         Name "TitleText"
+         Slot LayoutSlot "{6710ACF78973839A}" {
+          Padding 0 10 0 0
+         }
+         Text "Find Document"
+         "Font Size" 24
+         "Min Font Size" 24
+         "Horizontal Alignment" Center
+        }
+        HorizontalLayoutWidgetClass "{671C92BDED5BE5E4}" {
+         Name "Size Container"
+         Slot LayoutSlot "{6710ACF64C1062B7}" {
+          Padding 0 20 0 0
+         }
+         {
+          RichTextWidgetClass "{671C92BDED5BE5E3}" {
+           Name "RichText0"
+           Slot LayoutSlot "{6710ACF64708DF2A}" {
+            Padding 0 0 50 0
+           }
+           Text "Carried chance:"
+          }
+          SliderWidgetClass "{671C92BDED5BE5E1}" {
+           Name "DocumentCarrySlider"
+           Slot LayoutSlot "{6710ACF65FEF53DB}" {
+           }
+          }
+          EditBoxWidgetClass "{671C92BDED5A02BA}" {
+           Name "DocumentCarryEdit"
+           Slot LayoutSlot "{6710ACF66DA063B8}" {
+            Padding 50 0 0 0
+           }
+           text "0"
+          }
+         }
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{671C92BE66AF5EE5}" {
+       Name "DestroyContainer"
+       Slot LayoutSlot "{671C92BE66AF5F28}" {
+       }
+       {
+        HorizontalLayoutWidgetClass "{671C92BE66AFC6B8}" {
+         Name "TabContainer"
+         Slot LayoutSlot "{6710ACF64C1062B7}" {
+          Padding 0 20 0 0
+         }
+         {
+          FrameWidgetClass "{671C92BE66AFC6BF}" {
+           Name "Spacer0"
+           Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+            SizeMode Fill
+           }
+          }
+          ButtonWidgetClass "{671C92BE66AFC6BC}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+           Name "ButtonCache"
+           Slot LayoutSlot "{6710ACF78973842D}" {
+           }
+           components {
+            SCR_ButtonTextComponent "{5548F0143AE99095}" {
+             m_sText "Cache"
+            }
+           }
+           {
+            SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+             Prefab "{5548EB41A8E48247}"
+             {
+              OverlayWidgetClass "{5548EB41A8E48245}" {
+               Prefab "{5548EB41A8E48245}"
+               {
+                TextWidgetClass "{5548F014E72FB9DA}" {
+                 Prefab "{5548F014E72FB9DA}"
+                 Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                  Padding 20 0 20 0
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass "{671C92BE66AFC6BD}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+           Name "ButtonVehicle"
+           Slot LayoutSlot "{6710ACF78973842D}" {
+            Padding 50 0 50 0
+           }
+           components {
+            SCR_ButtonTextComponent "{5548F0143AE99095}" {
+             m_sText "Vehicle"
+            }
+           }
+           {
+            SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+             Prefab "{5548EB41A8E48247}"
+             {
+              OverlayWidgetClass "{5548EB41A8E48245}" {
+               Prefab "{5548EB41A8E48245}"
+               {
+                TextWidgetClass "{5548F014E72FB9DA}" {
+                 Prefab "{5548F014E72FB9DA}"
+                 Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                  Padding 20 0 20 0
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          FrameWidgetClass "{671C92BE66AFB21F}" {
+           Name "Spacer1"
+           Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+            SizeMode Fill
+           }
+          }
+         }
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{671C92BD9233C307}" {
+       Name "RescueContainer"
+       Slot LayoutSlot "{671C92BE66AF5F28}" {
+       }
+       {
+        HorizontalLayoutWidgetClass "{671C92BD9233C306}" {
+         Name "TabContainer"
+         Slot LayoutSlot "{6710ACF64C1062B7}" {
+          Padding 0 20 0 0
+         }
+         {
+          FrameWidgetClass "{671C92BD9233C305}" {
+           Name "Spacer0"
+           Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+            SizeMode Fill
+           }
+          }
+          ButtonWidgetClass "{671C92BD9233C304}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+           Name "ButtonRescue"
+           Slot LayoutSlot "{6710ACF78973842D}" {
+           }
+           components {
+            SCR_ButtonTextComponent "{5548F0143AE99095}" {
+             m_sText "Rescue"
+            }
+           }
+           {
+            SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+             Prefab "{5548EB41A8E48247}"
+             {
+              OverlayWidgetClass "{5548EB41A8E48245}" {
+               Prefab "{5548EB41A8E48245}"
+               {
+                TextWidgetClass "{5548F014E72FB9DA}" {
+                 Prefab "{5548F014E72FB9DA}"
+                 Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                  Padding 20 0 20 0
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass "{671C92BD9233C302}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+           Name "ButtonCapture"
+           Slot LayoutSlot "{6710ACF78973842D}" {
+            Padding 50 0 50 0
+           }
+           components {
+            SCR_ButtonTextComponent "{5548F0143AE99095}" {
+             m_sText "Capture"
+            }
+           }
+           {
+            SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+             Prefab "{5548EB41A8E48247}"
+             {
+              OverlayWidgetClass "{5548EB41A8E48245}" {
+               Prefab "{5548EB41A8E48245}"
+               {
+                TextWidgetClass "{5548F014E72FB9DA}" {
+                 Prefab "{5548F014E72FB9DA}"
+                 Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                  Padding 20 0 20 0
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          FrameWidgetClass "{671C92BD9233C301}" {
+           Name "Spacer1"
+           Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+            SizeMode Fill
+           }
+          }
+         }
+        }
+       }
+      }
+      FrameWidgetClass "{671C92B7C5F86A31}" {
+       Name "Spacer"
+       Slot LayoutSlot "{6710ACF6A8CFFE0F}" {
+        SizeMode Fill
+       }
+      }
+      HorizontalLayoutWidgetClass "{671C92B7C5F855FA}" {
+       Name "Actions"
+       Slot LayoutSlot "{670E47A730C9BF32}" {
+       }
+       {
+        FrameWidgetClass "{671C92B7C5F855FB}" {
+         Name "Spacer0"
+         Slot LayoutSlot "{6710ACF6D03FAF13}" {
+          SizeMode Fill
+         }
+        }
+        ButtonWidgetClass "{671C92B7C5F855FC}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonStart"
+         Slot LayoutSlot "{6710ACF78973842D}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Create Objective"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{671C92B7C5F855FD}" {
+         Name "Spacer"
+         Slot LayoutSlot "{6710ACF6D03FAF13}" {
+          Padding 20 0 0 0
+         }
+        }
+        ButtonWidgetClass "{671C92B7C5F855FE}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+         Name "ButtonClose"
+         Slot LayoutSlot "{6710ACF7897385D6}" {
+         }
+         components {
+          SCR_ButtonTextComponent "{5548F0143AE99095}" {
+           m_sText "Close"
+          }
+         }
+         {
+          SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+           Prefab "{5548EB41A8E48247}"
+           {
+            OverlayWidgetClass "{5548EB41A8E48245}" {
+             Prefab "{5548EB41A8E48245}"
+             {
+              TextWidgetClass "{5548F014E72FB9DA}" {
+               Prefab "{5548F014E72FB9DA}"
+               Slot OverlayWidgetSlot "{55708DE55528756B}" {
+                Padding 20 0 20 0
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    VerticalLayoutWidgetClass "{671C92B7C5F853E2}" {
+     Name "LeftBorder"
+     Slot FrameWidgetSlot "{670E47A78CBA157C}" {
+      Anchor 0 0.05 0.05 0.95
+      PositionX 96
+      PositionY -54
+      SizeX 4
+      OffsetRight 0
+      SizeY -942
+      OffsetBottom 0
+     }
+     {
+      FrameWidgetClass "{671C92B7C5F853E3}" {
+       Name "Frame0"
+       Slot LayoutSlot "{6710ACF789738592}" {
+       }
+      }
+     }
+    }
+    VerticalLayoutWidgetClass "{671C92B7C5F853EC}" {
+     Name "RightBorder"
+     Slot FrameWidgetSlot "{670E47A78CBA157C}" {
+      Anchor 0.95 0.05 1 0.95
+      PositionX -972.8
+      OffsetLeft -972.8
+      PositionY 0
+      OffsetTop 0
+      SizeX 0
+      OffsetRight 972.8
+      SizeY 0
+      OffsetBottom 0
+     }
+     {
+      FrameWidgetClass "{671C92B7C5FBE49F}" {
+       Name "Frame0"
+       Slot LayoutSlot "{670E47A7A9F97A37}" {
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

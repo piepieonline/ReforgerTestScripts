@@ -46,16 +46,9 @@ class PIE_AreaPopulator : Managed
 		for(int i = 0; i < paramBuildingsToFill; i++)
 		{
 			if(PIE_ZeusControlComponent.GetLocalInstance())
-			{
-				Print("PIE_ZeusControlComponent.Instance.SpawnGarrisonUnit", LogLevel.NORMAL);
-				SCR_HintManagerComponent.GetInstance().ShowCustomHint("PIE_ZeusControlComponent.Instance.SpawnGarrisonUnit", "Success", 10.0);
 				PIE_ZeusControlComponent.GetLocalInstance().SpawnGarrisonUnit(paramSpawnUnitFaction, paramSpawnRadius, selectedMapItem.Entity().GetOrigin(), foundBuildings.GetRandomElement().GetOrigin());
-			}
 			else
-			{
-				SCR_HintManagerComponent.GetInstance().ShowCustomHint("PIE_ZeusControlComponent.Instance.SpawnGarrisonUnit", "Failure", 10.0);
 				Print("No global spawner", LogLevel.ERROR);
-			}
 		}
 		
 		for(int i = 0; i < paramPatrolsCount; i++)
