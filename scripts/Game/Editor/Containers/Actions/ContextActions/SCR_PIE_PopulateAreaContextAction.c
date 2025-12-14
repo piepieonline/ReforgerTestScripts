@@ -10,6 +10,9 @@ class SCR_PIE_PopulateArea : SCR_BaseContextAction
 		if (world.IsGameTimePaused())
 			return false;
 		
+		if (selectedEntities.Count() > 0)
+			return false;
+		
 		//
 		vector positionCheck;
 		return !hoveredEntity || hoveredEntity.GetPos(positionCheck);
@@ -30,6 +33,8 @@ class SCR_PIE_PopulateArea : SCR_BaseContextAction
 		PrintFormat("PIE_Modules_PopulateArea.Perform() method reached: %1", workingPosition, LogLevel.NORMAL);
 		// SCR_HintManagerComponent.GetInstance().ShowCustomHint("PIE_Modules_PopulateArea.Perform()", "TEST GROUND", 3.0);
 		
+		// PIE_ZeusControlComponent.GetLocalInstance().SendRPC(workingPosition);
+
 		if(m_LOL.IsEmpty())
 		{
 			SCR_EditableEntityCore core = SCR_EditableEntityCore.Cast(SCR_EditableEntityCore.GetInstance(SCR_EditableEntityCore));
