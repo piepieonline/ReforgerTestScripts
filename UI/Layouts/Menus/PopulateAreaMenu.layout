@@ -263,14 +263,14 @@ FrameWidgetClass {
          Text "Vehicles:"
         }
         EditBoxWidgetClass "{671A79D647B7689A}" {
-         Name "VehicleEdit"
+         Name "VehicleCountEdit"
          Slot LayoutSlot "{6710ACF66DA063B8}" {
           Padding 50 0 50 0
          }
          text "0"
         }
         CheckBoxWidgetClass "{671A79D780CD3464}" {
-         Name "JeepsCheck"
+         Name "VehicleJeepsCheck"
          Slot LayoutSlot "{671A79D780CD3479}" {
          }
          text "Jeeps"
@@ -280,7 +280,7 @@ FrameWidgetClass {
          checked 1
         }
         CheckBoxWidgetClass "{671A79D7A32DCA0E}" {
-         Name "APCsCheck"
+         Name "VehicleAPCsCheck"
          Slot LayoutSlot "{671A79D780CD3479}" {
           Padding 50 0 0 0
          }

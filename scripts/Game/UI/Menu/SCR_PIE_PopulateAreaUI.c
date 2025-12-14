@@ -60,6 +60,9 @@ class SCR_PIE_PopulateAreaUI : MenuBase
 		AddEventListeners("GarrisonEdit");
 		AddEventListeners("GarrisonSlider");
 		AddEventListeners("PatrolEdit");
+		AddEventListeners("VehicleCountEdit");
+		AddEventListeners("VehicleJeepsCheck");
+		AddEventListeners("VehicleAPCsCheck");
 	}
 
 	protected override void OnMenuClose()
@@ -157,6 +160,15 @@ class SCR_PIE_PopulateAreaUI : MenuBase
 		if (ignoreElement != "PatrolEdit")
 			UpdateEditTextElement("PatrolEdit", areaPopulator.paramPatrolsCount.ToString());
 		
+		if (ignoreElement != "VehicleCountEdit")
+			UpdateEditTextElement("VehicleCountEdit", areaPopulator.paramVehicleCount.ToString());
+		
+		if (ignoreElement != "VehicleJeepsCheck")
+			UpdateCheckElement("VehicleJeepsCheck", areaPopulator.paramVehicleJeep);
+		
+		if (ignoreElement != "VehicleAPCsCheck")
+			UpdateCheckElement("VehicleAPCsCheck", areaPopulator.paramVehicleAPC);
+		
 		UpdateTextElement("GarrisonMaxNumber", areaPopulator.valueFoundBuildings.ToString());
 
 		inUIUpdate = false;
@@ -191,6 +203,13 @@ class SCR_PIE_PopulateAreaUI : MenuBase
 
 		w.SetCurrent(value);
 	}
+	
+	private void UpdateCheckElement(string path, bool value)
+	{
+		CheckBoxWidget w = CheckBoxWidget.Cast(rootWidget.FindAnyWidget(path));
+		if(w)
+			w.SetChecked(value);
+	}
 
 	//------------------------------------------------------------------------------------------------
 	protected void WidgetOnChange(Widget w)
@@ -198,94 +217,70 @@ class SCR_PIE_PopulateAreaUI : MenuBase
 		if (inUIUpdate)
 			return;
 
-		string name = w.GetName();
-
-		switch (name)
-		{
-			case "AreaSizeSlider":
-				areaPopulator.paramSpawnRadius = SliderWidget.Cast(w).GetCurrent();
-				break;
-
-			case "AreaSizeEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramSpawnRadius = txt.ToInt();
-				break;
-			}
-
-			case "GarrisonSlider":
-				areaPopulator.paramBuildingsToFill = SliderWidget.Cast(w).GetCurrent();
-				break;
-
-			case "GarrisonEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramBuildingsToFill = txt.ToInt();
-				break;
-			}
-			
-			case "PatrolEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramPatrolsCount = txt.ToInt();
-				break;
-			}
-		}
+		UpdateValueFromWidget(w);
 
 		inUIUpdate = true;
-		UpdateUI(name);
+		UpdateUI(w.GetName());
 		inUIUpdate = false;
 	}
 
-	//------------------------------------------------------------------------------------------------
 	protected void WidgetOnChangeFinal(Widget w)
 	{
 		if (inUIUpdate)
 			return;
-
-		string name = w.GetName();
-
 		inUIUpdate = true;
 
-		// Re-read widget value (do NOT call WidgetOnChange)
-		switch (name)
-		{
-			case "AreaSizeSlider":
-				areaPopulator.paramSpawnRadius = SliderWidget.Cast(w).GetCurrent();
-				break;
-
-			case "AreaSizeEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramSpawnRadius = txt.ToInt();
-				break;
-			}
-
-			case "GarrisonSlider":
-				areaPopulator.paramBuildingsToFill = SliderWidget.Cast(w).GetCurrent();
-				break;
-
-			case "GarrisonEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramBuildingsToFill = txt.ToInt();
-				break;
-			}
-			
-			case "PatrolEdit":
-			{
-				string txt = EditBoxWidget.Cast(w).GetText();
-				areaPopulator.paramPatrolsCount = txt.ToInt();
-				break;
-			}
-		}
-
-		// Recalculate after final change
+		UpdateValueFromWidget(w);
 		areaPopulator.UpdateValues();
-
-		// Update UI with the new values
-		UpdateUI(name);
+		UpdateUI(w.GetName());
 
 		inUIUpdate = false;
 	}
+	
+	protected void UpdateValueFromWidget(Widget w)
+	{
+		switch (w.GetName())
+		{
+			case "AreaSizeSlider":
+			{
+				areaPopulator.paramSpawnRadius = SliderWidget.Cast(w).GetCurrent();
+				break;
+			}
+			case "AreaSizeEdit":
+			{
+				areaPopulator.paramSpawnRadius = EditBoxWidget.Cast(w).GetText().ToInt();
+				break;
+			}
+			case "GarrisonSlider":
+			{
+				areaPopulator.paramBuildingsToFill = SliderWidget.Cast(w).GetCurrent();
+				break;
+			}
+			case "GarrisonEdit":
+			{
+				areaPopulator.paramBuildingsToFill = EditBoxWidget.Cast(w).GetText().ToInt();
+				break;
+			}
+			case "PatrolEdit":
+			{
+				areaPopulator.paramPatrolsCount = EditBoxWidget.Cast(w).GetText().ToInt();
+				break;
+			}
+			case "VehicleCountEdit":
+			{
+				areaPopulator.paramVehicleCount = EditBoxWidget.Cast(w).GetText().ToInt();
+				break;
+			}
+			case "VehicleJeepsCheck":
+			{
+				areaPopulator.paramVehicleJeep = CheckBoxWidget.Cast(w).IsChecked();
+				break;
+			}
+			case "VehicleAPCsCheck":
+			{
+				areaPopulator.paramVehicleAPC = CheckBoxWidget.Cast(w).IsChecked();
+				break;
+			}
+		}
+	}	
 }
